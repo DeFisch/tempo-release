@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>TEMPO thread</title>
+<style>
+  @font-face { font-family: "CMU Serif"; src: url("cmunrm.ttf") format("truetype"); }
+  @font-face { font-family: "CMU Serif"; src: url("cmunbx.ttf") format("truetype"); font-weight: bold; }
+  @font-face { font-family: "CMU Serif"; src: url("cmunti.ttf") format("truetype"); font-style: italic; }
+  html, body { margin: 0; padding: 0; background: #0A0E14; }
+  main { max-width: 720px; margin: 0 auto; padding: 16px 16px 60px;
+         font-family: "CMU Serif", Georgia, serif; }
+  h2 { color: #8C97A8; font-size: 16px; font-weight: 600; margin: 34px 2px 8px; }
+  .tweet { white-space: pre-line; background: #121A26; color: #F4F7FA; border-radius: 12px;
+           padding: 14px 16px; margin: 0 0 14px; font-size: 17px;
+           line-height: 1.55; overflow-wrap: anywhere; }
+  .tweet a { color: #7FB2F0; }
+  video { display: block; width: 100%; border-radius: 10px;
+          margin: 0 0 14px; background: #0A0E14; }
+  hr { border: none; border-top: 2px solid #3B4C63; margin: 44px 0 8px; }
+</style>
+</head>
+<body>
+<!-- BUILD:t3mp0a03 -->
+<main>
+  <section>
+    <h2>LinkedIn: main teaser</h2>
+    <p class="tweet">Too many robotics papers gravitate toward tabletop tasks that generalists like ChatGPT Astra can already do zero-shot. Why not try something more challenging? 💪
+
+Our lab has spent months on dynamic tasks, where a human keeps moving things around the robot's environment, just like in everyday life.
+
+We found that most VLAs don't struggle here because they're "not fast enough." They struggle because they lack temporal context.
+
+TEMPO adds compact temporal context to the VLA, letting the policy see recent object motion and robot’s own recent states 🔭
+
+Plug-and-play ✅ No backbone changes ✅ Near-zero extra latency ✅
+
+Paper, code, and models are public: <a href="https://tempo-robot.github.io/">https://tempo-robot.github.io/</a>
+
+Work led by @Daniel Feng and @Jimin Heo.
+Explainer X thread: [link]</p>
+    <video src="00_teaser.mp4" controls muted loop playsinline preload="metadata"></video>
+  </section>
+  <hr>
+  <section>
+    <h2>Twitter main (anchor tweet)</h2>
+    <p class="tweet">Too many robot manipulation tasks are static… ahem… boring! 🙈
+
+Tabletop tasks are now solvable zero-shots by generalists like ChatGPT Astra. Time to move on!
+
+We explore dynamic manipulation, where VLA must react as humans move. We pinpoint what they're missing, and fix it 🧵👇</p>
+    <video src="00_teaser.mp4" controls muted loop playsinline preload="metadata"></video>
+  </section>
+  <section>
+    <h2>Thread 1: Reason #1, object motion</h2>
+    <p class="tweet">Why do VLAs break the moment the world moves? 🤔
+Reason #1: A VLA acts on one frame, and one frame can't tell you how the scene is moving. So it reaches for where the object <em>was</em>.
+Fix #1: We introduce a motion cue that informs the policy of how the scene is moving.</p>
+    <video src="01_reason1_motion_min_v2.mp4" controls muted loop playsinline preload="metadata"></video>
+  </section>
+  <section>
+    <h2>Thread 2: Reason #2, state aliasing</h2>
+    <p class="tweet">Reason #2: In dynamic tasks, we frequently encounter visually similar observations from entirely different phases of the task. Traditional VLA doesn’t know how to disentangle it.
+Fix #2: We introduce a compact summary of recent proprio history that helps policy tell its phase.</p>
+    <video src="02_aliasing_v4.mp4" controls muted loop playsinline preload="metadata"></video>
+  </section>
+  <section>
+    <h2>Thread 3: temporal context, not speed</h2>
+    <p class="tweet">For dynamic tasks, most people have worked on speeding up VLA’s inference delay; we show that this isn’t the case. What’s missing is temporal context.
+
+TEMPO is plug-and-play: No architectural changes; minimal latency.</p>
+    <video src="03_method_v5.mp4" controls muted loop playsinline preload="metadata"></video>
+  </section>
+  <section>
+    <h2>Thread 4: four dynamic tasks</h2>
+    <p class="tweet">We test on four dynamic tasks where human introduces constant movements into the environment, as our day-to-day life environment will be.</p>
+    <video src="04_tasks_v3.mp4" controls muted loop playsinline preload="metadata"></video>
+  </section>
+  <section>
+    <h2>Thread 5: links (text only)</h2>
+    <p class="tweet">Can your VLA see motion?
+📄Paper: <a href="https://arxiv.org/abs/2609.16864">arxiv.org/abs/2609.16864</a>
+💻Code: <a href="https://github.com/tempo-robot/TEMPO">github.com/tempo-robot/TEMPO</a>
+📊Bench: <a href="https://github.com/tempo-robot/TempoBench">github.com/tempo-robot/TempoBench</a>
+🔗Website: <a href="https://tempo-robot.github.io">tempo-robot.github.io</a>
+Try your VLA on our work, and tell us how it does.</p>
+  </section>
+</main>
+<script>
+  if (!matchMedia("(prefers-reduced-motion: reduce)").matches) {
+    const io = new IntersectionObserver(entries => {
+      for (const e of entries) {
+        if (e.isIntersecting) { e.target.play().catch(() => {}); }
+        else { e.target.pause(); }
+      }
+    }, { threshold: 0.4 });
+    document.querySelectorAll("video").forEach(v => io.observe(v));
+  }
+</script>
+<script>
+(async () => {
+  const cur = (document.documentElement.outerHTML.match(/BUILD:([0-9a-z]+)/) || [])[1];
+  try {
+    const r = await fetch(location.pathname + "?nocache=" + Date.now(), {cache: "no-store"});
+    const t = await r.text();
+    const fresh = (t.match(/BUILD:([0-9a-z]+)/) || [])[1];
+    if (cur && fresh && cur !== fresh) { document.open(); document.write(t); document.close(); }
+  } catch (e) {}
+})();
+</script>
+</body>
+</html>
