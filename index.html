@@ -19,11 +19,14 @@
   .tweet a { color: #7FB2F0; }
   video { display: block; width: 100%; border-radius: 10px;
           margin: 0 0 14px; background: #0A0E14; }
+  .placeholder { display: flex; align-items: center; justify-content: center; aspect-ratio: 16 / 9;
+                 max-width: 100%; border: 2px dashed #3B4C63; border-radius: 10px; margin: 0 0 14px;
+                 color: #8C97A8; font-size: 17px; }
   hr { border: none; border-top: 2px solid #3B4C63; margin: 44px 0 8px; }
 </style>
 </head>
 <body>
-<!-- BUILD:t3mp0a03 -->
+<!-- BUILD:t3mp0b02 -->
 <main>
   <section>
     <h2>LinkedIn: main teaser</h2>
@@ -57,7 +60,7 @@ TEMPO, our CoRL work: <a href="https://tempo-robot.github.io/">https://tempo-rob
 As always, we're sharing the code and benchmark.
 
 Huge effort from Daniel Feng and Jimin Heo to get these experiments working!</p>
-    <video src="00_teaser.mp4" controls muted loop playsinline preload="metadata"></video>
+    <video src="00_anchor_s2.mp4" controls muted loop playsinline preload="metadata"></video>
   </section>
   <section>
     <h2>Thread 1: Reason #1, object motion</h2>
@@ -68,7 +71,7 @@ TEMPO_MOT borrows a frozen video model's temporal features. The current frame at
 We use SAM 2.1-Tiny, kept frozen.
 
 Thanks @nikhilaravi and the SAM 2 team for open-sourcing it!</p>
-    <video src="01_reason1_motion_min_v2.mp4" controls muted loop playsinline preload="metadata"></video>
+    <video src="01_motion_s2.mp4" controls muted loop playsinline preload="metadata"></video>
   </section>
   <section>
     <h2>Thread 2: Reason #2, state aliasing</h2>
@@ -77,7 +80,7 @@ Thanks @nikhilaravi and the SAM 2 team for open-sourcing it!</p>
 Almost the same image. Opposite next actions. No wonder it hesitates.
 
 TEMPO_ACT summarizes recent proprioceptive history so the policy can tell which part of the task it's in.</p>
-    <video src="02_aliasing_v4.mp4" controls muted loop playsinline preload="metadata"></video>
+    <video src="02_aliasing_s2.mp4" controls muted loop playsinline preload="metadata"></video>
   </section>
   <section>
     <h2>Thread 3: Results and UVT</h2>
@@ -89,6 +92,7 @@ TEMPO_ACT summarizes recent proprioceptive history so the policy can tell which 
       VLASH: 38% → 74%
       
       Our earlier UVT work takes VLASH + TEMPO to 88%. We finetune on expert demos of these tasks, good old IL. No zero-shotness, yet!</p>
+    <video src="03_results_s2.mp4" controls muted loop playsinline preload="metadata"></video>
   </section>
   <section>
     <h2>Thread 4: Motion probe</h2>
@@ -99,6 +103,7 @@ We fit a small probe to predict object velocity from its hidden state.
 On Flick Catch, R² is 0.57 for TEMPO, vs -0.07 for RTC and 0.03 for VLASH.
 
 The baselines' features barely tell us how the target is moving.</p>
+    <video src="04_probe_s2.mp4" controls muted loop playsinline preload="metadata"></video>
   </section>
   <section>
     <h2>Thread 5: Inference latency</h2>
@@ -110,6 +115,7 @@ Bottle Handover still goes from 38% to 74%.
 RTC does better on Drop Catch: 80% vs TEMPO's 66%.
 
 Thanks @jmtang42, @songhan_mit and the VLASH team and the RTC team at @physical_int for the asynchronous inference groundwork.</p>
+    <div class="placeholder">Video in progress</div>
   </section>
   <section>
     <h2>Thread 8: Closing</h2>
