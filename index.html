@@ -26,7 +26,7 @@
 </style>
 </head>
 <body>
-<!-- BUILD:t3mp0b18 -->
+<!-- BUILD:t3mp0b19 -->
 <main>
   <section>
     <h2>LinkedIn: main teaser</h2>
@@ -115,15 +115,17 @@ The baseline features barely capture the active object’s motion in this test.<
   </section>
   <section>
     <h2>Thread 5: Inference latency</h2>
-    <p class="tweet">VLASH: 33.8 ms median forward pass.
-TEMPO: 35.3 ms, introduces minimal latency thanks to parallel motion encoding.
+    <p class="tweet">TEMPO improves success with just 1.5 ms extra per policy forward pass.
 
-Bottle Handover: 38% → 74%.
-Drop Catch: 38% → 66%
-Flick Catch: 20% → 66%
-Wine Pour: 94% → 98.1% (mass retained)
+VLASH → VLASH + TEMPO:
+Median forward pass: 33.8 → 35.3 ms
+Bottle Handover success: 38% → 74%
 
-Thanks @jmtang42, @songhan_mit and the VLASH team and the RTC team at @physical_int for the asynchronous inference groundwork.</p>
+Motion encoding runs in parallel.
+
+Faster inference and better motion context help with different parts of the problem. RTC still does better on Drop Catch: 80% vs TEMPO’s 66%.
+
+Thanks @jmtang42, @songhan_mit and the VLASH team, and the RTC team at @physical_int for the asynchronous inference groundwork.</p>
     <video src="05_latency_s2.mp4?v=b09" controls muted loop playsinline preload="metadata"></video>
   </section>
   <section>
