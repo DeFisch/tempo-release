@@ -46,24 +46,37 @@ Explainer X thread: [link]</p>
   <hr>
   <section>
     <h2>Twitter main (anchor tweet)</h2>
-    <p class="tweet">Too many robot manipulation tasks are static… ahem… boring! 🙈
+    <p class="tweet">Objects in robot demos are awfully patient 🙃
 
-Tabletop tasks are now solvable zero-shots by generalists like ChatGPT Astra. Time to move on!
+We've spent months on tasks where they aren't. Catching balls, pouring into a moving pot, taking a bottle from someone walking by.
 
-We explore dynamic manipulation, where VLA must react as humans move. We pinpoint what they're missing, and fix it 🧵👇</p>
+Two small additions help π0.5, RTC and VLASH keep up. 🧵
+
+TEMPO, our CoRL work: <a href="https://tempo-robot.github.io/">https://tempo-robot.github.io/</a>
+
+As always, we're sharing the code and benchmark.
+
+Huge effort from Daniel Feng and Jimin Heo to get these experiments working!</p>
     <video src="00_teaser.mp4" controls muted loop playsinline preload="metadata"></video>
   </section>
   <section>
     <h2>Thread 1: Reason #1, object motion</h2>
-    <p class="tweet">Why do VLAs break the moment the world moves? 🤔
-Reason #1: A VLA acts on one frame, and one frame can't tell you how the scene is moving. So it reaches for where the object <em>was</em>.
-Fix #1: We introduce a motion cue that informs the policy of how the scene is moving.</p>
+    <p class="tweet">How fast is that bottle moving, and which way?
+
+TEMPO_MOT borrows a frozen video model's temporal features. The current frame attends to recent visual history, giving the VLA a compact representation of scene dynamics.
+
+We use SAM 2.1-Tiny, kept frozen.
+
+Thanks @nikhilaravi and the SAM 2 team for open-sourcing it!</p>
     <video src="01_reason1_motion_min_v2.mp4" controls muted loop playsinline preload="metadata"></video>
   </section>
   <section>
     <h2>Thread 2: Reason #2, state aliasing</h2>
-    <p class="tweet">Reason #2: In dynamic tasks, we frequently encounter visually similar observations from entirely different phases of the task. Traditional VLA doesn’t know how to disentangle it.
-Fix #2: We introduce a compact summary of recent proprio history that helps policy tell its phase.</p>
+    <p class="tweet">The robot reaches for a plate. Later, it puts the plate back.
+
+Almost the same image. Opposite next actions. No wonder it hesitates.
+
+TEMPO_ACT summarizes recent proprioceptive history so the policy can tell which part of the task it's in.</p>
     <video src="02_aliasing_v4.mp4" controls muted loop playsinline preload="metadata"></video>
   </section>
   <section>
