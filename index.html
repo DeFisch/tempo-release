@@ -26,7 +26,7 @@
 </style>
 </head>
 <body>
-<!-- BUILD:t3mp0b16 -->
+<!-- BUILD:t3mp0b17 -->
 <main>
   <section>
     <h2>LinkedIn: main teaser</h2>
@@ -101,13 +101,16 @@ All results here use finetuning on expert demos of these tasks. Good old IL. No 
   </section>
   <section>
     <h2>Thread 4: Motion probe</h2>
-    <p class="tweet">Does the policy actually encode motion?
+    <p class="tweet">TEMPO’s internal features capture more about object motion in this test.
 
-We fit a small probe to predict object velocity from its hidden state.
+We predict the active object’s speed and direction from each policy’s features.
 
-On Flick Catch, R² is 0.57 for TEMPO, vs -0.07 for RTC and 0.03 for VLASH.
+Flick Catch prediction score (R²; higher is better):
+TEMPO: 0.57 | RTC: -0.07 | VLASH: 0.03
 
-The baselines' features barely tell us how the target is moving.</p>
+We train a small predictor on each policy’s features. A score of 1 means perfect prediction; 0 means no improvement over predicting the average velocity.
+
+The baseline features barely capture the active object’s motion in this test.</p>
     <video src="04_probe_s2.mp4?v=b10" controls muted loop playsinline preload="metadata"></video>
   </section>
   <section>
