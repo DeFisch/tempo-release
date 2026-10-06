@@ -26,7 +26,7 @@
 </style>
 </head>
 <body>
-<!-- BUILD:t3mp0b27 -->
+<!-- BUILD:t3mp0b28 -->
 <main>
   <section>
     <h2>LinkedIn: main teaser</h2>
@@ -38,13 +38,21 @@ We spent months on these tasks. Two small additions helped:
 • A sense of motion: how fast is that bottle moving, and which way?
 • A memory of what the robot just did: is it reaching for the plate, or pulling away after putting it back?
 
-Together they became TEMPO, our CoRL 2026 Oral. We show they improve all baselines: π0.5, RTC and VLASH. On Bottle Handover, VLASH goes from 38% to 74% success for just 1.5 ms more per forward pass, since motion encoding runs in parallel.
+The video starts with the tasks, then walks through both ideas.
+Together, these became TEMPO, our CoRL work (oral).
 
-50 trials per success rate, 1,500+ robot evaluations. All finetuned on expert demos of these tasks. No zero-shotness, yet!
+- The additions improve π0.5, RTC and VLASH.
 
-Proud of Daniel and Jimin for the care and creativity they brought to this work. Try it on your own policy. We’d love to see where it holds up and where it breaks.
+- On Bottle Handover, VLASH goes from 38% to 74% success
 
-Code and benchmark: <a href="https://tempo-robot.github.io/">https://tempo-robot.github.io/</a>
+- with 1.5 ms extra per policy forward pass. Motion encoding runs in parallel.
+
+1500+ physical evals by Daniel Feng &amp; Jimin Heo (50 runs per reported metric) bring the necessary physical rigor.
+
+As always, we’re making everything public at:
+<a href="https://tempo-robot.github.io/">https://tempo-robot.github.io/</a>
+We’d love to see what others try with their own policies.
+
 Explainer X thread in the comments.</p>
     <video src="00_teaser.mp4?v=b06" controls muted loop playsinline preload="metadata"></video>
   </section>
