@@ -80,19 +80,51 @@ TEMPO_ACT summarizes recent proprioceptive history so the policy can tell which 
     <video src="02_aliasing_v4.mp4" controls muted loop playsinline preload="metadata"></video>
   </section>
   <section>
-    <h2>Thread 3: temporal context, not speed</h2>
+    <h2>Thread 3: Results and UVT</h2>
+    <p class="tweet">Same two additions, three backbones.
+
+      Bottle Handover success, before → after TEMPO:
+      π0.5: 26% → 56%
+      RTC: 44% → 80%
+      VLASH: 38% → 74%
+      
+      Our earlier UVT work takes VLASH + TEMPO to 88%. We finetune on expert demos of these tasks, good old IL. No zero-shotness, yet!</p>
+  </section>
+  <section>
+    <h2>Thread 4: Motion probe</h2>
+    <p class="tweet">Does the policy actually encode motion?
+
+We fit a small probe to predict object velocity from its hidden state.
+
+On Flick Catch, R² is 0.57 for TEMPO, vs -0.07 for RTC and 0.03 for VLASH.
+
+The baselines' features barely tell us how the target is moving.</p>
+  </section>
+  <section>
+    <h2>Thread 5: Inference latency</h2>
+    <p class="tweet">VLASH: 33.8 ms median forward pass.
+TEMPO: 35.3 ms.
+
+Bottle Handover still goes from 38% to 74%.
+
+RTC does better on Drop Catch: 80% vs TEMPO's 66%.
+
+Thanks @jmtang42, @songhan_mit and the VLASH team and the RTC team at @physical_int for the asynchronous inference groundwork.</p>
+  </section>
+  <section>
+    <h2>Thread 6: temporal context, not speed</h2>
     <p class="tweet">For dynamic tasks, most people have worked on speeding up VLA’s inference delay; we show that this isn’t the case. What’s missing is temporal context.
 
 TEMPO is plug-and-play: No architectural changes; minimal latency.</p>
     <video src="03_method_v5.mp4" controls muted loop playsinline preload="metadata"></video>
   </section>
   <section>
-    <h2>Thread 4: four dynamic tasks</h2>
+    <h2>Thread 7: four dynamic tasks</h2>
     <p class="tweet">We test on four dynamic tasks where human introduces constant movements into the environment, as our day-to-day life environment will be.</p>
     <video src="04_tasks_v3.mp4" controls muted loop playsinline preload="metadata"></video>
   </section>
   <section>
-    <h2>Thread 5: links (text only)</h2>
+    <h2>Thread 8: links (text only)</h2>
     <p class="tweet">Can your VLA see motion?
 📄Paper: <a href="https://arxiv.org/abs/2609.16864">arxiv.org/abs/2609.16864</a>
 💻Code: <a href="https://github.com/tempo-robot/TEMPO">github.com/tempo-robot/TEMPO</a>
