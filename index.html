@@ -26,7 +26,7 @@
 </style>
 </head>
 <body>
-<!-- BUILD:t3mp0b14 -->
+<!-- BUILD:t3mp0b15 -->
 <main>
   <section>
     <h2>LinkedIn: main teaser</h2>
@@ -84,14 +84,19 @@ A short history of the robot’s own movements helps it tell which part of the t
   </section>
   <section>
     <h2>Thread 3: Results and UVT</h2>
-    <p class="tweet">Same two additions, three backbones.
+    <p class="tweet">Main results: these two additions help across all three VLA setups we tested.
 
-      Bottle Handover success, before → after TEMPO:
-      π0.5: 26% → 56%
-      RTC: 44% → 80%
-      VLASH: 38% → 74%
-      
-      Our earlier UVT work takes VLASH + TEMPO to 88%. We finetune on expert demos of these tasks, good old IL. No zero-shotness, yet!</p>
+Bottle Handover success, before → after TEMPO:
+π0.5: 26% → 56%
+RTC: 44% → 80%
+VLASH: 38% → 74%
+
+That includes the popular π0.5 backbone and the fast asynchronous approaches RTC and VLASH.
+
+Our earlier work, Unified Visuomotor Targets (UVT), takes VLASH + TEMPO to 88%:
+<a href="https://unified-visuomotor-targets.github.io/">https://unified-visuomotor-targets.github.io/</a>
+
+All results here use finetuning on expert demos of these tasks. Good old IL. No zero-shotness, yet!</p>
     <video src="03_results_s2.mp4?v=b06" controls muted loop playsinline preload="metadata"></video>
   </section>
   <section>
