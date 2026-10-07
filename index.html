@@ -26,29 +26,24 @@
 </style>
 </head>
 <body>
-<!-- BUILD:t3mp0b33 -->
+<!-- BUILD:t3mp0b34 -->
 <main>
   <section>
     <h2>LinkedIn: main teaser</h2>
-    <p class="tweet">What happens to a VLA when the world doesn’t hold still? 🤸
+    <p class="tweet">Robot demos can get a little boring. So we gave ours moving targets: catching balls, pouring into a moving pot, taking a bottle from someone walking by.
 
-Catching a flicked ball. Pouring into a pot someone keeps moving. Taking a bottle from a person walking past.
+We spent months getting these tasks to work. Two additions helped:
+1. A sense of motion: how fast is that bottle moving, and which way?
+2. A memory of what the robot just did: is it reaching for the plate, or pulling away after putting it back?
 
-We spent months on these tasks. Two small additions helped:
-• A sense of motion: how fast is that bottle moving, and which way?
-• A memory of what the robot just did: is it reaching for the plate, or pulling away after putting it back?
+The video starts with the tasks, then walks through both ideas. We call this TEMPO, which we’ll present as an oral at CoRL 2026.
+• Both additions helped across all three setups we tested: π0.5, RTC and VLASH.
+• On Bottle Handover, VLASH goes from 38% to 74% success with 1.5 ms extra per policy forward pass. Motion encoding runs in parallel.
 
-The video starts with the tasks, then walks through both ideas.
-Together, these became TEMPO, our CoRL work (oral).
+Daniel Feng and Jimin Heo ran 1,500+ physical robot evaluations, with 50 runs per reported success rate. Proud of the care and creativity Daniel and Jimin brought to this work.
 
-• The additions improve π0.5, RTC and VLASH.
-• On Bottle Handover, VLASH goes from 38% to 74% success
-• with 1.5 ms extra per policy forward pass. Motion encoding runs in parallel.
-
-1500+ physical evals by Daniel Feng &amp; Jimin Heo (50 runs per reported metric) bring the necessary physical rigor.
-
-As always, we’re making everything public at:
-<a href="https://tempo-robot.github.io/">https://tempo-robot.github.io/</a>
+As always, we’re making everything public:
+<a href="https://tempo-robot.github.io/">tempo-robot.github.io</a>
 We’d love to see what others try with their own policies.
 
 Explainer X thread in the comments.</p>
